@@ -5,6 +5,7 @@ digilines = {}
 -- We define a proxy table whose methods can be called with the
 -- `foo:bar` notation, and it will redirect the call to the
 -- real function, dropping the first implicit argument.
+
 local digiline; digiline = setmetatable({}, {
 	__index = function(_, k)
 		-- Get method from real table.
@@ -44,7 +45,7 @@ dofile(modpath .. "/util.lua")
 dofile(modpath .. "/internal.lua")
 dofile(modpath .. "/wires_common.lua")
 dofile(modpath .. "/wire_std.lua")
-
+dofile(modpath.."/touchscreen.lua")
 function digilines.receptor_send(pos, rules, channel, msg)
 	local checked = {}
 	checked[minetest.hash_node_position(pos)] = true -- exclude itself
